@@ -1,0 +1,19 @@
+...
+<form class="form-inline my-2 my-lg-0" method="POST">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="item">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add to List</button>
+</form>
+...
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>My Todo List</h1>
+    
+    {% if all_items %}
+        <ul>
+            {% for item in all_items %}
+                <li>
+                    <span class="{% if item.completed %}completed{% endif %}">
+                        {{ item.item }}
+                    </span>

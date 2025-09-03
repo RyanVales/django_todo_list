@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>My Todo List</h1>
+    
+    {% if all_items %}
+        <ul>
+            {% for item in all_items %}
+                <li>
+                    <span class="{% if item.completed %}completed{% endif %}">
+                        {{ item.item }}
+                    </span>
+                    - Status: {% if item.completed %}✓ Completed{% else %}⏳ Pending{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No items in your todo list yet. <a href="#">Add your first item!</a></p>
+    {% endif %}
+{% endblock %}
