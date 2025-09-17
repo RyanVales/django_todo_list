@@ -33,5 +33,5 @@ def home(request):
     return render(request, 'home.html', context)
 
 def about(request):
-    context = {'myname': "jed"}
+    context = {'myname': "Ryan"}
     return render(request, 'about.html', context)
