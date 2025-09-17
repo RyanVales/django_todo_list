@@ -25,12 +25,11 @@ def home(request):
         form = ListForm(request.POST or None)
         if form.is_valid():
             form.save()
-            all_items = List.objects.all()
-            context = {'all_items' : all_items}
-            return render(request, 'home.html' , context)
+        all_items = List.objects.all()
     else:
         all_items = List.objects.all()
-    context = {'all_items' : all_items}
+
+    context = {'all_items': all_items}
     return render(request, 'home.html', context)
 
 def about(request):
